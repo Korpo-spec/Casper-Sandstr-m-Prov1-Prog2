@@ -11,7 +11,7 @@ namespace Prov1_Prog2
 
             for (int i = 0; i < 20; i++)
             {
-                book.storeBooks.Add(new book());
+                book.storeBooks.Add(new book());//skapar nya böcker med nya stats
             }
 
             List<Kund> peopleBuyingStuff = new List<Kund>();
@@ -19,7 +19,9 @@ namespace Prov1_Prog2
             for (int i = 0; i < 5; i++)
             {
                 Console.WriteLine("Välj ett namn för kunden!");
-                peopleBuyingStuff.Add(new Kund(Console.ReadLine()));
+                Kund newBuyingMan = new Kund();
+                newBuyingMan.name = Console.ReadLine();//låter användaren välja namn på alla kunder
+                peopleBuyingStuff.Add(newBuyingMan);
                 Console.WriteLine("Vilket fint namn");
             }
 
