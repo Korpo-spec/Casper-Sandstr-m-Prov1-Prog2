@@ -7,23 +7,39 @@ namespace Prov1_Prog2
 
         public int price;
         private string name;
+        private static string[] theNames = {"return of the sith", "Old boring books", "Snoopdogs baking show script"};
         private int rarity;
         private string category;
+
+        private static string[] theCategories = {"cooking", "swordfighting", "old books book"};
         private int actualvalue;
         private bool cursed;
         static Random generator = new Random();
 
         public book(){
+            
+            rarity = generator.Next(1,6);
+
+            actualvalue = generator.Next(10, 101);
+
+            category = theCategories[generator.Next(0,theCategories.Length)];
+
+            name = theNames[generator.Next(0, theNames.Length)];
 
         }
 
         public void PrintInfo(){
-
+            Console.WriteLine("Name: " + name);
+            Console.WriteLine("Rarity: " + rarity);
+            Console.WriteLine("Category: " + category);
+            Console.WriteLine("Price: " + price);
         }
 
         public int Evaluate(){
 
-            return 1;
+            price = actualvalue * rarity;
+            float returnValueFloat = price * generator.Next(5,15)/10f;
+            return Convert.ToInt32( returnValueFloat);
         }
 
         public string GetCategory(){
